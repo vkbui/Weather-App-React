@@ -1,3 +1,5 @@
+// type npm start to run
+
 import React, {useState} from 'react'
 import axios from 'axios'
 
@@ -24,13 +26,13 @@ function App() {
         value = {location}
         onChange = {event => setLocation(event.target.value)}
         onKeyPress = {searchLocation}
-        placeholder = "Enter Location"
+        placeholder = "Enter City, Country"
         type="text" />
       </div>
       <div className="container">
         <div className="top">
           <div className="location">
-            <p>{data.name}</p>
+            {data.sys ? <p>{data.name}, {data.sys.country}</p> : null}
           </div>
           <div className="temp">
             {data.main ? <h1>{data.main.temp.toFixed()}°F</h1> : null}
